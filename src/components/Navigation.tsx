@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -50,14 +49,14 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-sm border-b border-gray-200' : 'bg-transparent'
+      isScrolled ? 'bg-white/95 backdrop-blur-sm border-b border-green-200' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link 
               to="/"
-              className="text-xl font-light text-gray-800"
+              className="text-xl font-light text-green-700 hover:text-green-800 transition-colors"
             >
               The Matcha Layer
             </Link>
@@ -71,7 +70,7 @@ const Navigation = () => {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="text-gray-600 hover:text-gray-900 transition-colors border-b border-transparent hover:border-gray-900 pb-1"
+                    className="hover:text-green-800 transition-colors border-b border-transparent hover:border-green-400 pb-1"
                   >
                     {item.name}
                   </Link>
@@ -79,7 +78,7 @@ const Navigation = () => {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.href, item.isExternal)}
-                    className="text-gray-600 hover:text-gray-900 transition-colors border-b border-transparent hover:border-gray-900 pb-1"
+                    className="hover:text-green-800 transition-colors border-b border-transparent hover:border-green-400 pb-1"
                   >
                     {item.name}
                   </button>
@@ -94,7 +93,7 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-800"
+              className="text-green-700 hover:text-green-800"
             >
               {isOpen ? <X size={20} /> : <Menu size={20} />}
             </Button>
@@ -104,14 +103,14 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-sm border-t border-green-200 rounded-b-lg">
               {navItems.map((item) => (
                 item.isExternal ? (
                   <Link
                     key={item.name}
                     to={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors"
+                    className="block px-3 py-2 text-green-700 hover:text-green-800 hover:bg-green-100/50 transition-colors rounded-md"
                   >
                     {item.name}
                   </Link>
@@ -119,7 +118,7 @@ const Navigation = () => {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.href, item.isExternal)}
-                    className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors w-full text-left"
+                    className="block px-3 py-2 text-green-700 hover:text-green-800 hover:bg-green-100/50 transition-colors w-full text-left rounded-md"
                   >
                     {item.name}
                   </button>

@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-emerald-25 to-lime-50 text-stone-800">
+    <section className="min-h-screen flex items-center justify-center bg-white text-stone-800">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center">
           <div className="mb-8">
@@ -16,11 +16,11 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-green-700 font-light">
-            Tech Strategy and Data Engineering Enthusiast
+            Tech Strategy and Data Engineering
           </p>
           
           <p className="text-lg mb-12 text-stone-600 max-w-2xl mx-auto leading-relaxed">
-            I spend most days figuring out what actually matters for companies and learning best principles in data engineering.
+            I spend most days figuring out what actually matters for companies and learning best principles in data engineering. Also been brewing matcha and making espressos.
           </p>
           
           <div className="space-y-4">
