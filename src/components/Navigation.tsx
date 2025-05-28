@@ -2,10 +2,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,17 +19,19 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Writing', href: '#blog' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '#about', isExternal: false },
+    { name: 'Projects', href: '#projects', isExternal: false },
+    { name: 'Writing', href: '/blog', isExternal: true },
+    { name: 'Contact', href: '#contact', isExternal: false },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, isExternal: boolean) => {
     setIsOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (!isExternal && location.pathname === '/') {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -38,33 +42,39 @@ const Navigation = () => {
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <a 
-              href="#home" 
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
+            <Link 
+              to="/"
               className="text-xl font-light text-gray-800"
             >
               John Smith
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(item.href);
-                  }}
-                  className="text-gray-600 hover:text-gray-900 transition-colors border-b border-transparent hover:border-gray-900 pb-1"
-                >
-                  {item.name}
-                </a>
+                item.isExternal ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-gray-600 hover:text-gray-900 transition-colors border-b border-transparent hover:border-gray-900 pb-1"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.href, item.isExternal);
+                    }}
+                    className="text-gray-600 hover:text-gray-900 transition-colors border-b border-transparent hover:border-gray-900 pb-1"
+                  >
+                    {item.name}
+                  </a>
+                )
               ))}
             </div>
           </div>
@@ -87,17 +97,28 @@ const Navigation = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(item.href);
-                  }}
-                  className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  {item.name}
-                </a>
+                item.isExternal ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.href, item.isExternal);
+                    }}
+                    className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors"
+                  >
+                    {item.name}
+                  </a>
+                )
               ))}
             </div>
           </div>
