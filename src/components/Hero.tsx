@@ -21,7 +21,7 @@ const Hero = () => {
           
           <p className="text-lg mb-12 text-stone-600 max-w-2xl mx-auto leading-relaxed">
             I spend most days figuring out what actually matters for companies and for data engineering. I previously worked at Revolut and brief stint in Finance.
-          
+            </p>
           <div className="space-y-4">
             <div className="flex justify-center space-x-8">
               <a 
