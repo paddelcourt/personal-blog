@@ -20,8 +20,7 @@ const Hero = () => {
           </p>
           
           <p className="text-lg mb-12 text-stone-600 max-w-2xl mx-auto leading-relaxed">
-            I spend most days figuring out what actually matters for companies and learning best principles in data engineering. Also been brewing matcha and making espressos.
-          </p>
+            I spend most days figuring out what actually matters for companies and for data engineering.
           
           <div className="space-y-4">
             <div className="flex justify-center space-x-8">
