@@ -1,10 +1,21 @@
-
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { blogPosts } from "@/data/blogPosts";
+import { getAllPosts } from "@/lib/markdown";
+import { useEffect, useState } from "react";
+import { BlogPost } from "@/lib/markdown";
 
 const Blog = () => {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const allPosts = await getAllPosts();
+      setPosts(allPosts);
+    };
+    fetchPosts();
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -18,7 +29,7 @@ const Blog = () => {
           </div>
           
           <div className="space-y-12">
-            {blogPosts.map((post) => (
+            {posts.map((post) => (
               <article key={post.id} className="border-b border-gray-200 pb-8 last:border-b-0">
                 <div className="mb-2 flex items-center text-sm text-gray-500 space-x-4">
                   <time>{post.date}</time>

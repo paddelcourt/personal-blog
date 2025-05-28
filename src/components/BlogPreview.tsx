@@ -1,9 +1,18 @@
-
 import { Link } from "react-router-dom";
-import { blogPosts } from "@/data/blogPosts";
+import { getAllPosts } from "@/lib/markdown";
+import { useEffect, useState } from "react";
+import type { BlogPost } from "@/lib/markdown";
 
 const BlogPreview = () => {
-  const recentPosts = blogPosts.slice(0, 3);
+  const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const allPosts = await getAllPosts();
+      setRecentPosts(allPosts.slice(0, 3));
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <section id="blog" className="py-20 bg-gray-50">
