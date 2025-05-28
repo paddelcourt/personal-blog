@@ -22,8 +22,8 @@ const Navigation = () => {
   const navItems = [
     { name: 'About', href: '#about', isExternal: false },
     { name: 'Projects', href: '#projects', isExternal: false },
-    { name: 'Writing', href: '/blog', isExternal: true },
     { name: 'Contact', href: '#contact', isExternal: false },
+    { name: 'Writing', href: '/blog', isExternal: true },
   ];
 
   const handleNavClick = (href: string, isExternal: boolean) => {
@@ -59,7 +59,7 @@ const Navigation = () => {
               to="/"
               className="text-xl font-light text-gray-800"
             >
-              John Smith
+              The Matcha Layer
             </Link>
           </div>
 

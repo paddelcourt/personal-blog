@@ -2,30 +2,25 @@
 const Projects = () => {
   const projects = [
     {
-      title: "Digital Privacy in the Modern Age",
-      description: "A comprehensive analysis of privacy concerns and digital rights in contemporary society. Exploring the balance between convenience and security in our connected world.",
-      link: "https://example.com/privacy-research"
+      title: "Text to SQL Lakehouse",
+      description: "A proof of concept on how to utilize text to sql systems with Iceberg",
+      link: "https://github.com/paddelcourt/t2sql-lakehouse"
     },
     {
-      title: "The Future of Remote Work",
-      description: "An in-depth study examining how remote work technologies are reshaping professional relationships and organizational structures across industries.",
-      link: "https://example.com/remote-work-study"
+      title: "LLM Sport Commentator",
+      description: "Part of the Berkele AI Hackathon 2024, I created a webapp that commentates on sport footage using frame analysis. Mainly used to commentate over Shohei Ohtani's games.",
+      link: "https://github.com/paddelcourt/llm-sport-commentator"
     },
     {
-      title: "AI Ethics Framework",
-      description: "Developing practical guidelines for ethical AI implementation in various sectors, with focus on transparency and accountability.",
-      link: "https://example.com/ai-ethics"
+      title: "Postgres RAG For LLMs",
+      description: "An implementation of Eric Zakariasson's 'Postgres As A Search Engine' for LLM's.",
+      link: "https://github.com/paddelcourt/postgres-rag-llm"
     },
     {
-      title: "Urban Technology Integration",
-      description: "Research on how smart city technologies can be implemented responsibly while preserving community values and individual privacy.",
-      link: "https://example.com/urban-tech"
+      title: "Berlin Airport Data Pipeline Project",
+      description: "Frustrated by the amount of delays at Berlin Airport, I decided to build a data pipeline to tabulate the amount of delays and develop my data engineering skills.",
+      link: "https://github.com/paddelcourt/berlin_airport_datapipeline_project"
     },
-    {
-      title: "Digital Literacy Initiative",
-      description: "A community-focused project aimed at improving digital literacy across different age groups and socioeconomic backgrounds.",
-      link: "https://example.com/digital-literacy"
-    }
   ];
 
   return (

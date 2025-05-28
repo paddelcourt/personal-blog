@@ -1,36 +1,47 @@
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white text-gray-900">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-emerald-25 to-lime-50 text-stone-800">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center">
           <div className="mb-8">
             <img 
-              src="/profile_photo.jpeg" 
-              alt="John Smith - Profile Photo" 
-              className="w-48 h-48 md:w-56 md:h-56 rounded-lg mx-auto object-cover"
+              src="/personal-blog/profile_photo.jpeg" 
+              alt="Tom Mac - Profile Photo" 
+              className="w-48 h-48 md:w-56 md:h-56 rounded-2xl mx-auto object-cover shadow-xl ring-4 ring-green-100/50"
             />
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-light mb-6 text-gray-800">
-            John Smith
+          <h1 className="text-5xl md:text-6xl font-light mb-6 text-stone-700">
+            Tom Mac
           </h1>
           
-          <p className="text-xl md:text-2xl mb-8 text-gray-600 font-light">
-            Researcher, Writer, and Problem Solver
+          <p className="text-xl md:text-2xl mb-8 text-green-700 font-light">
+            Tech Strategy and Data Engineering Enthusiast
           </p>
           
-          <p className="text-lg mb-12 text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            I explore ideas at the intersection of technology and society, 
-            documenting insights through research and writing.
+          <p className="text-lg mb-12 text-stone-600 max-w-2xl mx-auto leading-relaxed">
+            I spend most days figuring out what actually matters for companies and learning best principles in data engineering.
           </p>
           
           <div className="space-y-4">
-            <a 
-              href="#about" 
-              className="inline-block text-gray-700 hover:text-gray-900 border-b border-gray-300 hover:border-gray-900 transition-colors pb-1"
-            >
-              Learn more about my work
-            </a>
+            <div className="flex justify-center space-x-8">
+              <a 
+                href="https://github.com/paddelcourt" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-green-700 hover:text-green-800 border-b-2 border-green-200 hover:border-green-400 transition-all duration-300 pb-1 px-2"
+              >
+                Github
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/tom-m-651241167/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-green-700 hover:text-green-800 border-b-2 border-green-200 hover:border-green-400 transition-all duration-300 pb-1 px-2"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </div>
