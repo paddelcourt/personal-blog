@@ -6,11 +6,6 @@ const Projects = () => {
       link: "https://github.com/paddelcourt/t2sql-lakehouse"
     },
     {
-      title: "LLM Sport Commentator",
-      description: "Part of the Berkele AI Hackathon 2024, I created a webapp that commentates on sport footage using frame analysis. Mainly used to commentate over Shohei Ohtani's games.",
-      link: "https://github.com/paddelcourt/llm-sport-commentator"
-    },
-    {
       title: "Postgres RAG For LLMs",
       description: "An implementation of Eric Zakariasson's 'Postgres As A Search Engine' for LLM's.",
       link: "https://github.com/paddelcourt/postgres-rag-llm"
