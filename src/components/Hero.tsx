@@ -1,9 +1,16 @@
-
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center bg-white text-gray-900">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center">
+          <div className="mb-8">
+            <img 
+              src="/profile_photo.jpeg" 
+              alt="John Smith - Profile Photo" 
+              className="w-48 h-48 md:w-56 md:h-56 rounded-lg mx-auto object-cover"
+            />
+          </div>
+          
           <h1 className="text-5xl md:text-6xl font-light mb-6 text-gray-800">
             John Smith
           </h1>

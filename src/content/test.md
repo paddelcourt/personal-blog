@@ -1,5 +1,5 @@
 ---
-title: "The Quiet Revolution of Async Communication"
+title: "Test Blog Post"
 date: "2025-04-28"
 excerpt: "How asynchronous communication tools are changing the way we work and collaborate, with implications for productivity and work-life balance."
 readTime: "6 min read"
