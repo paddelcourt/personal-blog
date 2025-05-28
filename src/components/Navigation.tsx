@@ -2,12 +2,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,10 +28,22 @@ const Navigation = () => {
 
   const handleNavClick = (href: string, isExternal: boolean) => {
     setIsOpen(false);
-    if (!isExternal && location.pathname === '/') {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+    if (!isExternal) {
+      if (location.pathname !== '/') {
+        // Navigate to home page first, then scroll to section
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // Already on home page, just scroll to section
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
   };
@@ -63,17 +76,13 @@ const Navigation = () => {
                     {item.name}
                   </Link>
                 ) : (
-                  <a
+                  <button
                     key={item.name}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(item.href, item.isExternal);
-                    }}
+                    onClick={() => handleNavClick(item.href, item.isExternal)}
                     className="text-gray-600 hover:text-gray-900 transition-colors border-b border-transparent hover:border-gray-900 pb-1"
                   >
                     {item.name}
-                  </a>
+                  </button>
                 )
               ))}
             </div>
@@ -107,17 +116,13 @@ const Navigation = () => {
                     {item.name}
                   </Link>
                 ) : (
-                  <a
+                  <button
                     key={item.name}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(item.href, item.isExternal);
-                    }}
-                    className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors"
+                    onClick={() => handleNavClick(item.href, item.isExternal)}
+                    className="block px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors w-full text-left"
                   >
                     {item.name}
-                  </a>
+                  </button>
                 )
               ))}
             </div>
