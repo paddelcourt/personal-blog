@@ -45,7 +45,7 @@ const BlogPost = () => {
             </Link>
           </div>
           
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-green-100">
+          <div className="bg-white p-8 rounded-2xl">
             <header className="mb-12">
               <h1 className="text-3xl md:text-4xl font-light mb-4 text-stone-700 leading-tight">
                 {post.title}
