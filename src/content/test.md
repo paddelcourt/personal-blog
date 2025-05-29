@@ -2,7 +2,6 @@
 title: "Test Blog Post"
 date: "2025-04-28"
 excerpt: "How asynchronous communication tools are changing the way we work and collaborate, with implications for productivity and work-life balance."
-readTime: "6 min read"
 ---
 
 A quiet revolution is transforming how we work and communicate. Asynchronous communication—where participants don't need to be present at the same time—is reshaping everything from team dynamics to work-life balance.

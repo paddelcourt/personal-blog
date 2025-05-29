@@ -14,6 +14,15 @@ export interface BlogPost {
   content?: string;
 }
 
+// Calculate reading time based on word count (average 200 words per minute)
+function calculateReadingTime(content: string): string {
+  const wordsPerMinute = 200;
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  
+  return minutes === 1 ? '1 min read' : `${minutes} min read`;
+}
+
 export async function getAllPosts(): Promise<BlogPost[]> {
   try {
     const allPosts = await Promise.all(
@@ -22,9 +31,13 @@ export async function getAllPosts(): Promise<BlogPost[]> {
         const id = path.split('/').pop()?.replace(/\.md$/, '') || '';
         const matterResult = matter(content);
         
+        // Calculate reading time from content
+        const readTime = calculateReadingTime(matterResult.content);
+        
         return {
           id,
-          ...(matterResult.data as { title: string; date: string; excerpt: string; readTime: string }),
+          readTime,
+          ...(matterResult.data as { title: string; date: string; excerpt: string }),
         };
       })
     );
@@ -54,10 +67,14 @@ export async function getPostById(id: string): Promise<BlogPost | null> {
       .process(matterResult.content);
     const contentHtml = processedContent.toString();
 
+    // Calculate reading time from content
+    const readTime = calculateReadingTime(matterResult.content);
+
     return {
       id,
       content: contentHtml,
-      ...(matterResult.data as { title: string; date: string; excerpt: string; readTime: string }),
+      readTime,
+      ...(matterResult.data as { title: string; date: string; excerpt: string }),
     };
   } catch (error) {
     return null;
